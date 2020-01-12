@@ -5,7 +5,7 @@ export default {
   // 查找一级分类
   getCatalog1() {
     return request({
-      url: 'getCatalog1',
+      url: '/pms/base-catalog1/getCatalog1s',
       method: 'post'
     })
   },
@@ -29,7 +29,7 @@ export default {
   // 根据三级分类id获取属性列表
   getAttrInfoList(catalog3Id) {
     return request({
-      url: 'attrInfoList?catalog3Id=' + catalog3Id,
+      url: '/pms/base-attr-info/attrInfoList?catalog3Id=' + catalog3Id,
       method: 'get'
     })
   },
@@ -37,7 +37,7 @@ export default {
   // 根据属性id获取属性值列表
   getAttrValueList(attrId) {
     return request({
-      url: 'getAttrValueList?attrId=' + attrId,
+      url: '/pms/base-attr-value/getAttrValueList?attrId=' + attrId,
       method: 'post'
     })
   },
@@ -45,7 +45,7 @@ export default {
   // 保存属性
   saveAttrInfo(attrForm) {
     return request({
-      url: 'saveAttrInfo',
+      url: '/pms/base-attr-info/saveAttrInfo',
       method: 'post',
       data: attrForm
     })
