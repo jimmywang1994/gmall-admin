@@ -36,6 +36,7 @@
         <el-table-column label="操作" width="200" align="center">
           <template slot-scope="scope">
             <el-button type="primary" size="mini" icon="el-icon-edit" @click="editAttrInfoById(scope.row.id, scope.row.attrName)">修改</el-button>
+            <el-button type="danger" size="mini" icon="el-icon-edit" @click="deleteAttrInfoById(scope.row.id)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -50,7 +51,6 @@
 
       <div style="margin-bottom:10px;">
         <el-button type="primary" icon="el-icon-plus" size="mini" @click="addAttrValue()">添加属性值</el-button>
-
       </div>
       <div>
         <el-table
@@ -188,7 +188,6 @@ export default {
       // 显示表单
       this.showAttrInfoForm = true
     },
-
     // 删除属性值
     deleteAttrValueByName(attrValueName) {
       const tempList = []
@@ -210,7 +209,38 @@ export default {
         this.showAttrInfoForm = false
       })
     },
-
+    deleteAttrInfoById(attrId){
+        this.$confirm("此操作将永久删除该记录, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning"
+      })
+        .then(() => {
+          //return表示后面的then还会执行
+          return prop.deleteAttrInfoById(attrId);
+        })
+        .then(() => {
+          //刷新整个页面
+          this.getAttrInfoList(this.catalogId)
+          this.$message({
+            type: "success",
+            message: "删除成功!"
+          });
+        })
+        .catch(response => {
+          if (response === "cancel") {
+            this.$message({
+              type: "info",
+              message: "已取消删除"
+            });
+          } else {
+            this.$message({
+              type: "error",
+              message: "删除失败"
+            });
+          }
+        });
+    },
     // 返回属性列表页面
     backToAttrList() {
       // 隐藏表单

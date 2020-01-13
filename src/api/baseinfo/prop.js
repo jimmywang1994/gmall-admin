@@ -49,5 +49,11 @@ export default {
       method: 'post',
       data: attrForm
     })
+  },
+  deleteAttrInfoById(attrId){
+    return request({
+      url: '/pms/base-attr-info/deleteAttrInfoById/' + attrId,
+      method: 'post'
+    })
   }
 }
