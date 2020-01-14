@@ -5,7 +5,7 @@ export default {
   // 根据三级分类id获取属性列表
   getSpuList(catalog3Id) {
     return request({
-      url: 'spuList?catalog3Id=' + catalog3Id,
+      url: '/pms/product-info/spuList?catalog3Id=' + catalog3Id,
       method: 'get'
     })
   },
@@ -13,7 +13,7 @@ export default {
   // 保存Spu
   saveSpuInfo(spuForm) {
     return request({
-      url: 'saveSpuInfo',
+      url: '/pms/product-info/saveSpuInfo',
       method: 'post',
       data: spuForm
     })
@@ -22,7 +22,7 @@ export default {
   // 获取基本销售属性列表
   getBaseSaleAttrList() {
     return request({
-      url: 'baseSaleAttrList',
+      url: '/pms/base-sale-attr/baseSaleAttrList',
       method: 'post'
     })
   },
