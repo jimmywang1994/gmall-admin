@@ -17,7 +17,7 @@
         :on-preview="onUploadPreview"
         :on-remove="onUploadRemove"
         :multiple="true"
-        :action="BASE_API+'/fileUpload'"
+        :action="BASE_API+'/pms/product-info/fileUpload'"
         class="upload-demo"
         list-type="picture-card">
         <i class="el-icon-plus"/>
@@ -236,6 +236,8 @@ export default {
 
     // 上传图片成功的回调
     onUploadSuccess(res, file) {
+      console.log("file="+file.name)
+      console.log("name="+file.response)
       // 填充上传文件列表
       this.spuForm.spuImageList.push({
         imgName: file.name,
