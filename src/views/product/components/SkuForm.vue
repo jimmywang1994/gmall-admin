@@ -176,7 +176,7 @@ export default {
       // Sku表单数据
       this.skuForm = {
         id: null,
-        spuId: null,
+        productId: null,
         price: null,
         skuName: null,
         weight: null,
@@ -237,7 +237,7 @@ export default {
     // 保存Sku
     saveSkuInfo() {
       this.skuForm.catalog3Id = this.catalogId
-      this.skuForm.spuId = this.spuId
+      this.skuForm.productId = this.spuId
 
       // 填充平台属性
       this.skuForm.skuAttrValueList = []
